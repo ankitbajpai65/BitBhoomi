@@ -1,0 +1,12 @@
+/* navigation */
+
+.mainSection nav {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.mainSection nav .tabBtn {
+    cursor: pointer;
+    padding: 10px;
+}

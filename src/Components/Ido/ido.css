@@ -1,0 +1,100 @@
+.idoSection {
+    height: calc(100vh -8vh);
+    padding: 3rem 0;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.idoSection .idoFormContainer {
+    /* border: 2px solid red; */
+    background: var(--dark-10);
+    padding: 2.5rem 2.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    border-radius: 10px;
+}
+
+.idoFormContainer .idoHeading {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.idoFormContainer .timerBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.idoFormContainer .timerBox .timer {
+    background: var(--dark-20);
+    padding: 1rem;
+    color: var(--blueColor);
+    font-weight: 600;
+}
+
+.idoFormContainer .inputFieldContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.idoFormContainer .inputField input {
+    border: 1px solid var(--lightGrey);
+    background: var(--dark-20);
+    color: white;
+    padding: 13px;
+}
+
+.idoFormContainer .errorMsg {
+    width: 100%;
+    margin: -1.2rem 0 0 2rem;
+}
+
+.idoFormContainer .buyBtn {
+    background: var(--blueColor);
+    color: white;
+    margin-top: 2rem;
+    font-family: 700;
+}
+
+.idoFormContainer .buyBtn:hover {
+    background-color: var(--dark-20);
+    color: var(--blueColor);
+    box-shadow: 1px 1px 10px rgb(107, 129, 231), 0px 0px 1px #75B5FF;
+}
+
+/* Progress bar */
+
+.idoSection .progressBox {
+    width: 33%;
+    margin: auto;
+}
+
+.idoSection .progressBox span {
+    top: -12px;
+}
+
+.idoSection .progressBox span span {
+    background-color: var(--blueColor) !important;
+}
+
+/* BHOOMI Token Balance */
+
+.idoSection .balanceContainer {
+    background: var(--dark-10);
+    padding: 2rem;
+    position: absolute;
+    right: 4rem;
+    top: 0rem;
+}
+
+.idoSection .balanceContainer .balanceAmount {
+    font-weight: bold;
+    text-shadow: rgba(255, 255, 255, 0.3) 0px 0px 12px;
+    margin-top: 10px;
+}

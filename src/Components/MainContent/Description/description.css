@@ -1,0 +1,44 @@
+.subheading {
+    color: var(--blueColor);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.descriptionBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.descriptionBox ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 1rem 1.5rem;
+    border-bottom: n;
+}
+
+.descriptionBox .mainText {
+    font-weight: bold;
+    text-shadow: rgba(255, 255, 255, 0.3) 0px 0px 12px;
+}
+
+.descriptionBox .secondaryText,
+.descriptionBox li {
+    font-size: 1.1rem;
+    color: var(--textColor);
+}
+
+.descriptionBox .emptyBox {
+    height: 18rem;
+    width: 75%;
+    background: white;
+}
+
+.descriptionBox .downloadBtn {
+    color: var(--blueColor);
+    margin-right: auto;
+    text-transform: capitalize;
+    text-decoration: underline;
+}

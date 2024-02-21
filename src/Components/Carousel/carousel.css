@@ -1,0 +1,12 @@
+.sliderContainer {
+    /* border: 2px solid red; */
+    height: 65.6vh;
+    width: 45%;
+    margin: 0 auto 8rem auto;
+}
+
+.sliderContainer + div {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}

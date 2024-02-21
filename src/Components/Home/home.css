@@ -1,0 +1,22 @@
+.homeSection{
+    height:calc(100vh - 100px);
+    width:80%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1.3rem;
+    text-align: center;
+}
+/* .heroSection .homeTextContainer{
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:1.2rem;
+} */
+
+.homeSection .homeText{
+    font-weight: bold;
+}

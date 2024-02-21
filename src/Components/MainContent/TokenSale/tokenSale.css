@@ -1,0 +1,21 @@
+.tokenSection {
+    margin-right:10px;
+}
+
+.tokenSection .tokenBoxHead {
+    background-color: rgb(36, 46, 66);
+    padding: 18px;
+    color:var(--lightGrey);
+}
+
+.tokenSection .tokenBox {
+    background: var(--dark-10);
+    border-top:1px solid rgb(36, 46, 66);
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 20px;
+}
+
+.tokenMainBox .text{
+    color:var(--lightGrey);
+}
