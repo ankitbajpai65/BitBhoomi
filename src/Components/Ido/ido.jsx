@@ -88,11 +88,7 @@ const Ido = () => {
       }}>
         <Grid item xs={5} className="idoFormContainer">
           <Typography variant="h4" className="idoHeading">$BHOOMI Token Sale</Typography>
-          <Box className="timerBox">
-            <Typography variant="body1" component="div">IDO Countdown</Typography>
-            <Typography variant="body1" component="span" className="timer">12d : 20hr : 32min : 12sec</Typography>
-          </Box>
-
+         
           <div className="inputFieldContainer">
             <Typography variant="subtitle" sx={{ mb: 2 }}>Enter total $ Sol you want to contribute</Typography>
             <TextField
@@ -140,8 +136,8 @@ const Ido = () => {
           position: 'absolute',
           right: '1rem',
         }}>
-          <Typography variant="body1" sx={{ color: 'var(--textColor)' }}>$BHOOMI Balance</Typography>
-          <Typography variant="h5" className="balanceAmount">$100000</Typography>
+          <Typography variant="body1" sx={{ color: 'var(--textColor)' }}>BHOOMI Balance</Typography>
+          <Typography variant="h5" className="balanceAmount">100000</Typography>
         </Box>
       </Grid>
 

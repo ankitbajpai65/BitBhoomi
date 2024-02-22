@@ -5,6 +5,12 @@ import { Menu, MenuItem, Typography } from '@mui/material';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+const logoStyle = {
+    height: '2rem',
+    width: '1.8rem',
+    marginRight: '10px'
+};
+
 const Navbar = () => {
     const pathname = usePathname();
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -50,9 +56,11 @@ const Navbar = () => {
                 onClose={handleCloseUserMenu}
             >
                 <MenuItem onClick={handleCloseUserMenu}>
+                    <img src="/dp1.png" alt="" style={logoStyle} />
                     <Typography textAlign="center">Phantom</Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
+                    <img src="/dp1.png" alt="" style={logoStyle} />
                     <Typography textAlign="center">Solfare</Typography>
                 </MenuItem>
             </Menu>

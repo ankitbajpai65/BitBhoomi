@@ -6,7 +6,6 @@
 }
 
 .idoSection .idoFormContainer {
-    /* border: 2px solid red; */
     background: var(--dark-10);
     padding: 2.5rem 2.5rem 3.5rem;
     display: flex;
@@ -20,20 +19,6 @@
 .idoFormContainer .idoHeading {
     font-weight: bold;
     margin-bottom: 1rem;
-}
-
-.idoFormContainer .timerBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-.idoFormContainer .timerBox .timer {
-    background: var(--dark-20);
-    padding: 1rem;
-    color: var(--blueColor);
-    font-weight: 600;
 }
 
 .idoFormContainer .inputFieldContainer {

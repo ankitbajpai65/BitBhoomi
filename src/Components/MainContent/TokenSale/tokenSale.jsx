@@ -10,9 +10,9 @@ const TokenSale = () => {
                 </Box>
                 {[
                     { label: "Initial Token Circulation", value: "10,000,000" },
-                    { label: "Price Per Token", value: "$ 0.10" },
-                    { label: "Initial Marked Cap", value: "$ 1m" },
-                    { label: "Total Max Supply", value: "$ 100,000,000" },
+                    { label: "Price Per Token", value: "$0.10" },
+                    { label: "Initial Marked Cap", value: "$1m" },
+                    { label: "Total Max Supply", value: "$100,000,000" },
                     { label: "Sale Start Time", value: "TBA" },
                     { label: "Sale End Time", value: "TBA" },
                     { label: "Total Distribution Time", value: "TBA" }

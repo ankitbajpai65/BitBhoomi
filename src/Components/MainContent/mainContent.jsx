@@ -20,9 +20,8 @@ const MainContent = () => {
                         <Typography
                             variant="body1"
                             onClick={() => setActiveTab("description")}
+                            className="tabBtn"
                             sx={{
-                                cursor: 'pointer',
-                                padding: '10px',
                                 color: activeTab === 'description' ? 'white' : 'var(--textColor)',
                                 borderBottom: activeTab === 'description' ? '1px solid var(--blueColor)' : 'none',
                             }}
@@ -32,9 +31,8 @@ const MainContent = () => {
                         <Typography
                             variant="body1"
                             onClick={() => setActiveTab("token")}
+                            className="tabBtn"
                             sx={{
-                                cursor: 'pointer',
-                                padding: '10px',
                                 color: activeTab !== 'description' ? 'white' : 'var(--textColor)',
                                 borderBottom: activeTab === 'token' ? '1px solid var(--blueColor)' : 'none',
                             }}
@@ -69,7 +67,7 @@ const MainContent = () => {
                         }}>$1,000,000</Typography>
                         <Typography component="div" sx={{ mb: 5 }}>
                             <span style={{ color: 'var(--textColor)' }}>Price Per Token............................... </span>
-                            <span>$ 0.01</span>
+                            <span>$0.10</span>
                         </Typography>
                     </Box>
                     <Typography variant="body2" sx={{
