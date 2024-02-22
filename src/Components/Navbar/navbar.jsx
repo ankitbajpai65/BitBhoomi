@@ -60,7 +60,7 @@ const Navbar = () => {
                     <Typography textAlign="center">Phantom</Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
-                    <img src="/dp1.png" alt="" style={logoStyle} />
+                    <img src="/dp2.png" alt="" style={{ width: "2rem", marginRight: '10px' }} />
                     <Typography textAlign="center">Solfare</Typography>
                 </MenuItem>
             </Menu>
