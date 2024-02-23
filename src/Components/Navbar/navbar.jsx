@@ -8,12 +8,6 @@ import Wallet from "../Wallet/Wallet";
 
 import SolflareWallet from "@solflare-wallet/sdk";
 
-const logoStyle = {
-  height: "2rem",
-  width: "1.8rem",
-  marginRight: "10px"
-};
-
 const Navbar = () => {
   const pathname = usePathname();
 

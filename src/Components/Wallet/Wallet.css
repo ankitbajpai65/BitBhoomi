@@ -1,0 +1,35 @@
+.connectBtn{
+    background: white;
+    color: var(--blueColor);
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+}
+
+.solanaImg{
+    height: 1.3rem !important;
+    width: 1.3rem;
+}
+
+.walletAddressContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: var(--blueColor);
+    color: white;
+    width: fit-content;
+    height: 50px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+}

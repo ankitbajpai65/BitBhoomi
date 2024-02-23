@@ -7,7 +7,7 @@ const Phantom = ({
   setWalletAddress,
   setIsWalletConnected,
   setWalletInfo,
-  setWalletDropdown,
+  // setWalletDropdown,
   setLoading
 }) => {
   const [provider, setProvider] = useState(null);
@@ -48,7 +48,7 @@ const Phantom = ({
       window.open("https://phantom.app/", "_blank");
     } else {
       console.log("in connection phantmo");
-      setWalletDropdown(false);
+      // setWalletDropdown(false);
       setLoading(true);
       try {
         const resp = await provider.connect();
