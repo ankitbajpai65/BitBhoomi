@@ -6,8 +6,6 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import Wallet from "../Wallet/Wallet";
 
-import SolflareWallet from "@solflare-wallet/sdk";
-
 const logoStyle = {
   height: "2rem",
   width: "1.8rem",

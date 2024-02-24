@@ -4,7 +4,6 @@ import {Grid, Box, Typography, TextField, Button} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import LinearProgress, {linearProgressClasses} from "@mui/material/LinearProgress";
 import "./ido.css";
-import {useWallet} from "@/Context/WalletContext";
 
 const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
   height: 10,
@@ -22,8 +21,6 @@ const Ido = () => {
   const [showSecondInput, setShowSecondInput] = useState(false);
   const [totalSol, setTotalSol] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-
-  const wallet = useWallet();
 
   const debounce = (func, delay) => {
     let timeoutId;
@@ -67,10 +64,6 @@ const Ido = () => {
       setErrorMsg("Please enter only numbers");
       return;
     }
-    const tx = await wallet.sendSol(
-      "8mLuyUCDXs1EHaA7hNtXaPkvApBk34tCs3zxJB1e9UsU",
-      totalSol
-    );
   };
 
   return (
