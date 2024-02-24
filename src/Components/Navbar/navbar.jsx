@@ -6,11 +6,7 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import Wallet from "../Wallet/Wallet";
 
-const logoStyle = {
-  height: "2rem",
-  width: "1.8rem",
-  marginRight: "10px"
-};
+import SolflareWallet from "@solflare-wallet/sdk";
 
 const Navbar = () => {
   const pathname = usePathname();

@@ -1,17 +1,27 @@
 "use client";
-
-import React, {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
+import { Menu, MenuItem, Typography } from '@mui/material';
 import Phantom from "./Wallets/Phantom";
 import Solflare from "./Wallets/Solflare";
-import {useWallet} from "@/Context/WalletContext";
+import { useWallet } from "@/Context/WalletContext";
+import './Wallet.css';
+
+const solfareLogoStyle = {
+  height: '2rem',
+  width: '2.5rem',
+  marginLeft: '-4px'
+}
+
+const phantomLogoStyle = {
+  height: "2rem",
+  width: "1.8rem",
+  marginRight: "10px"
+};
 
 const Wallet = () => {
-  const [walletDropdown, setWalletDropdown] = useState(false); //for wallet dropdown menu
-  const [disconnectDropdown, setDisconnectDropdown] = useState(false); //for displaying disconnect button as dropdown
-  const [isWalletConnected, setIsWalletConnected] = useState(false); //holding state if wallet is connected or not
-  const [walletAddress, setWalletAddress] = useState(null); //for wallet address state
+  const [isWalletConnected, setIsWalletConnected] = useState(false);
+  const [walletAddress, setWalletAddress] = useState(null);
   const [walletInfo, setWalletInfo] = useState({
-    //holding the wallet instance of selected wallet
     id: "",
     key: ""
   });
@@ -19,33 +29,49 @@ const Wallet = () => {
 
   const wallet = useWallet();
 
-  //Solana Wallets to render in dropdown,
+  const [anchorElWallet, setAnchorElWallet] = useState(null);
+  const [anchorElDisconnect, setAnchorElDisconnect] = useState(null);
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElWallet(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElWallet(null);
+  };
+
+  const handleOpenDisconnectMenu = (event) => {
+    setAnchorElDisconnect(event.currentTarget);
+  };
+
+  const handleCloseDisconnectMenu = () => {
+    setAnchorElDisconnect(null);
+  };
+
   const wallets = [
     {
       name: "Solflare Wallet",
+      image: "/dp2.png",
       component: (
         <Solflare
           setIsWalletConnected={setIsWalletConnected}
           setWalletAddress={setWalletAddress}
           setWalletInfo={setWalletInfo}
-          setWalletDropdown={setWalletDropdown}
           setLoading={setLoading}
         />
       ),
-      image: "/public/dp2.png"
     },
     {
       name: "Phantom Wallet",
+      image: "/dp1.png",
       component: (
         <Phantom
           setIsWalletConnected={setIsWalletConnected}
           setWalletAddress={setWalletAddress}
           setWalletInfo={setWalletInfo}
-          setWalletDropdown={setWalletDropdown}
           setLoading={setLoading}
         />
       ),
-      image: "/public/dp1.png"
     }
   ];
 
@@ -54,148 +80,116 @@ const Wallet = () => {
     wallet.setAddress(walletAddress);
   }, [walletAddress]);
 
-  //handler to disconnect from connected wallet
-  const disconnectWallet = async () => {
+  const handleDisconnectWallet = async () => {
     if (walletInfo.key === "SOLFLARE") {
       await wallet.provider.disconnect();
     } else if (walletInfo.key === "PHANTOM") {
       await wallet.provider.disconnect();
     }
-    setDisconnectDropdown(false);
+    handleCloseDisconnectMenu();
   };
+
 
   return (
     <>
       <div className='secondaryButton homeButtonProp'>
-        {isWalletConnected ? (
-          // Dropdown button for signed-in state
-          <div
-            style={{
-              position: "relative",
-              display: "inline-block"
-            }}>
-            <button
-              onClick={() => {
-                setDisconnectDropdown(prev => !prev);
-              }}
-              style={{
-                color: "var(--green-100)",
-                width: "var(--project-button-small)",
-                height: "50px",
-                borderRadius: "4px",
-                border: "none",
-                cursor: "pointer",
-                fontSize: "13px",
-                fontWeight: "bold",
-                display: "flex",
-                gap: "10px",
-                justifyContent: "center",
-                alignItems: "center",
-                padding: "10px"
-              }}>
-              {`${walletAddress.slice(0, 4)}...${walletAddress.slice(-4)}`}
-              {/* <img
-                src={wallets[walletInfo.id].image}
-                alt={wallets[walletInfo.id].name}
-                height={26}
-              /> */}
-            </button>
-            {disconnectDropdown && (
+        {
+          isWalletConnected ?
+            (
               <div
-                onClick={disconnectWallet}
-                style={{
-                  position: "absolute",
-                  top: "100%",
-                  left: 0,
+                onMouseEnter={handleOpenDisconnectMenu}
+                className="walletAddressContainer"
+              >
+                {`${walletAddress.slice(0, 10)}...${walletAddress.slice(-4)}`}
+                <img
+                  src={wallets[walletInfo.id].image}
+                  alt={wallets[walletInfo.id].name}
+                  style={walletInfo.id === 0 ? solfareLogoStyle : phantomLogoStyle}
+                />
 
-                  boxShadow: "0px 8px 16px 0px rgba(0,0,0,0.2)",
-                  overflow: "hidden",
-                  transition: "maxHeight 0.5s ease-out",
-                  maxHeight: "100vh",
-                  cursor: "pointer"
-                }}>
-                <a
-                  style={{
-                    display: "block",
-                    padding: "10px",
-                    fontSize: "12px",
-                    fontWeight: "bolder",
-                    textDecoration: "none",
-                    color: "var(--green-100)"
-                  }}>
-                  Disconnect Wallet
-                </a>
+                <Menu
+                  sx={{ top: '55px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElDisconnect}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElDisconnect)}
+                  onClose={handleCloseDisconnectMenu}
+                >
+                  <MenuItem onClick={handleDisconnectWallet}>
+                    <Typography textAlign="center">Disconnect wallet</Typography>
+                  </MenuItem>
+                </Menu>
+              </div>
+            )
+            :
+            (
+              <div>
+                <button
+                  className="connectBtn"
+                  onMouseEnter={(e) => {
+                    if (!loading) handleOpenUserMenu(e);
+                  }}
+                >
+                  {loading ? "Connecting..." : "Connect Solana Wallet"}
+                  <img
+                    src='/solana_logo.png'
+                    alt='solana logo'
+                    className="solanaImg"
+                  />
+                </button>
+
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElWallet}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElWallet)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {
+                    wallets?.map((wallet, index) => {
+                      return (
+                        <MenuItem>
+                          <>
+                            {index === 0 && <img src="/dp2.png" alt="" style={solfareLogoStyle} />}
+                            {index === 1 && <img src="/dp1.png" alt="" style={phantomLogoStyle} />}
+                            <div
+                              key={wallet.name}
+                              onClick={() => {
+                                setWalletInfo(prev => {
+                                  return {
+                                    ...prev,
+                                    id: index
+                                  };
+                                });
+                                handleCloseUserMenu();
+                              }}>
+                              {wallet.component}
+                            </div>
+                          </>
+                        </MenuItem>
+                      );
+                    })
+                  }
+                </Menu>
               </div>
             )}
-          </div>
-        ) : (
-          // Button for not signed-in state
-          <div
-            style={{
-              position: "relative",
-              display: "inline-block"
-            }}>
-            <button
-              onClick={() => {
-                if (!loading) setWalletDropdown(prev => !prev);
-              }}
-              style={{
-                background: "white",
-                color: "black",
-                height: "50px",
-                borderRadius: "4px",
-                border: "none",
-                cursor: "pointer",
-                fontSize: "10px",
-                fontWeight: "bold",
-                display: "flex",
-                gap: "10px",
-                justifyContent: "center",
-                alignItems: "center",
-                padding: "10px"
-              }}>
-              {loading ? "Connecting..." : "Connect Solana Wallet"}
-
-              {/* <img
-                src='/solana_logo.png'
-                alt='solana logo'
-                height={10}
-              /> */}
-            </button>
-            {walletDropdown && (
-              <div
-                style={{
-                  top: "100%",
-                  left: 0,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "",
-                  boxShadow: "0px 8px 16px 0px rgba(0,0,0,0.2)",
-                  overflow: "hidden",
-                  transition: "maxHeight 0.5s ease-out",
-                  maxHeight: "100vh",
-                  cursor: "pointer"
-                }}>
-                {wallets?.map((wallet, index) => {
-                  return (
-                    <div
-                      key={wallet.name}
-                      onClick={() => {
-                        setWalletInfo(prev => {
-                          return {
-                            ...prev,
-                            id: index
-                          };
-                        });
-                      }}>
-                      {wallet.component}
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        )}
       </div>
     </>
   );

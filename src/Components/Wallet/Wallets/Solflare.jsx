@@ -7,7 +7,7 @@ const Solflare = ({
   setWalletAddress,
   setIsWalletConnected,
   setWalletInfo,
-  setWalletDropdown,
+  // setWalletDropdown,
   setLoading
 }) => {
   const solflareWallet = new SolflareWallet();
@@ -36,7 +36,7 @@ const Solflare = ({
   return (
     <a
       onClick={async () => {
-        setWalletDropdown(false);
+        // setWalletDropdown(false);
         setLoading(true);
         try {
           await solflareWallet.connect();
