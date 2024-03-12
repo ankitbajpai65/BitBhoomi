@@ -88,7 +88,7 @@ const Ido = () => {
       }}>
         <Grid item xs={5} className="idoFormContainer">
           <Typography variant="h4" className="idoHeading">$BHOOMI Token Sale</Typography>
-         
+
           <div className="inputFieldContainer">
             <Typography variant="subtitle" sx={{ mb: 2 }}>Enter total $ Sol you want to contribute</Typography>
             <TextField
@@ -109,20 +109,20 @@ const Ido = () => {
             </div>
           }
 
-          {showSecondInput && (
-            <div className="inputFieldContainer">
-              <Typography variant="subtitle" sx={{ mb: 2 }}>Total $ Bhoomi tokens you will receive</Typography>
-              <TextField
-                id="outlined-basic"
-                placeholder="Total $ Bhoomi tokens you will receive"
-                variant="outlined"
-                className="inputField"
-                name="totalBhoomi"
-                value={totalSol * 100}
-                fullWidth
-              />
-            </div>
-          )}
+          {/* {showSecondInput && ( */}
+          <div className="inputFieldContainer">
+            <Typography variant="subtitle" sx={{ mb: 2 }}>Total $ Bhoomi tokens you will receive</Typography>
+            <TextField
+              id="outlined-basic"
+              placeholder="Total $ Bhoomi tokens you will receive"
+              variant="outlined"
+              className="inputField"
+              name="totalBhoomi"
+              value={totalSol * 100}
+              fullWidth
+            />
+          </div>
+          {/* )} */}
           <Button
             variant="contained"
             className="buyBtn"
@@ -132,13 +132,37 @@ const Ido = () => {
 
         </Grid>
 
-        <Box className="balanceContainer" sx={{
+        <Box sx={{
+          // border: '2px solid red',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
           position: 'absolute',
           right: '1rem',
+          top: "0"
         }}>
-          <Typography variant="body1" sx={{ color: 'var(--textColor)' }}>BHOOMI Balance</Typography>
-          <Typography variant="h5" className="balanceAmount">100000</Typography>
+          <Box className="balanceContainer">
+            <Typography variant="h6" sx={{ color: 'var(--textColor)' }}>BHOOMI Balance</Typography>
+            <Typography variant="h5" className="balanceAmount">100000</Typography>
+          </Box>
+
+          <Box className="symbolContainer">
+            <Typography variant="h6" sx={{ color: 'var(--textColor)', mb: 2 }}>Token Details</Typography>
+            <Box component="span" className="box">
+              <Typography variant="body2" sx={{ color: "var(--textColor)" }}>Symbol:</Typography>
+              <Typography variant="body2">$Bhoomi</Typography>
+            </Box>
+            <Box component="div" className="box2">
+              <Typography variant="body2" sx={{ color: "var(--textColor)" }}>Contract Address:</Typography>
+              <Typography variant="body2">Aa5w19iqzLynJ1kcAKQf53LhWSBX9c1dGhSzRJweRUY9</Typography>
+            </Box>
+            <Box component="div" className="box">
+              <Typography variant="body2" sx={{ color: "var(--textColor)" }}>Decimal points:</Typography>
+              <Typography variant="body2">9</Typography>
+            </Box>
+          </Box>
         </Box>
+
       </Grid>
 
       <Box className="progressBox">

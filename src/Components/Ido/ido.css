@@ -72,10 +72,27 @@
 
 .idoSection .balanceContainer {
     background: var(--dark-10);
-    padding: 2rem;
-    position: absolute;
+    padding: 2rem 1rem;
+    /* position: absolute;
     right: 4rem;
-    top: 0rem;
+    top: 0rem; */
+}
+
+.idoSection .symbolContainer {
+    background: var(--dark-10);
+    padding: 2rem 1rem;
+    /* position: absolute;
+    right: 4rem;
+    top: 2rem; */
+}
+
+.idoSection .symbolContainer .box {
+    display: flex;
+    gap: 1rem;
+    margin-top:10px;
+}
+.idoSection .symbolContainer .box2 {
+    margin-top:10px;
 }
 
 .idoSection .balanceContainer .balanceAmount {
