@@ -6,7 +6,7 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import Wallet from "../Wallet/Wallet";
 
-import SolflareWallet from "@solflare-wallet/sdk";
+// import SolflareWallet from "@solflare-wallet/sdk";
 
 const Navbar = () => {
   const pathname = usePathname();
